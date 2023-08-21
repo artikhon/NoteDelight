@@ -1,17 +1,33 @@
 package com.softartdev.notedelight.ui
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
+import androidx.compose.material.LinearProgressIndicator
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.softartdev.notedelight.MR
 import com.softartdev.notedelight.shared.presentation.signin.SignInResult
 import com.softartdev.notedelight.shared.presentation.signin.SignInViewModel
 import com.softartdev.notedelight.ui.dialog.showError
-import com.softartdev.themepref.DialogHolder
-import com.softartdev.themepref.LocalThemePrefs
+import com.softartdev.theme.pref.DialogHolder
+import com.softartdev.theme.pref.PreferableMaterialTheme.themePrefs
 import dev.icerock.moko.resources.StringResource
 import dev.icerock.moko.resources.compose.stringResource
 
@@ -24,7 +40,7 @@ fun SignInScreen(signInViewModel: SignInViewModel, navMain: () -> Unit) {
     var labelResource by remember { mutableStateOf(MR.strings.enter_password) }
     var error by remember { mutableStateOf(false) }
     val passwordState: MutableState<String> = remember { mutableStateOf("") }
-    val dialogHolder: DialogHolder = LocalThemePrefs.current.dialogHolder
+    val dialogHolder: DialogHolder = themePrefs.dialogHolder
     when (val signInResult: SignInResult = signInResultState.value) {
         is SignInResult.ShowSignInForm, is SignInResult.ShowProgress -> Unit
         is SignInResult.NavMain -> navMain()
@@ -81,7 +97,7 @@ fun SignInScreenBody(
                     .padding(top = 32.dp)
             ) { Text(text = stringResource(MR.strings.sign_in)) }
         }
-        LocalThemePrefs.current.showDialogIfNeed()
+        themePrefs.showDialogIfNeed()
     }
 }
 

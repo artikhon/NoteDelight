@@ -2,9 +2,9 @@ package com.softartdev.notedelight.shared.presentation.settings.security.enter
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
+import com.softartdev.notedelight.shared.StubEditable
 import com.softartdev.notedelight.shared.data.CryptUseCase
 import com.softartdev.notedelight.shared.presentation.MainDispatcherRule
-import com.softartdev.notedelight.shared.StubEditable
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals

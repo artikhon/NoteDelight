@@ -1,8 +1,8 @@
 package com.softartdev.notedelight.shared.database
 
+import com.softartdev.notedelight.shared.BaseTest
 import com.softartdev.notedelight.shared.IosCipherUtils
 import com.softartdev.notedelight.shared.PlatformSQLiteState
-import com.softartdev.notedelight.shared.BaseTest
 import com.softartdev.notedelight.shared.data.CryptUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest

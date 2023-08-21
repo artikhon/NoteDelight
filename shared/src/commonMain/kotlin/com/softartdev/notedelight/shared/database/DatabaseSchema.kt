@@ -1,10 +1,10 @@
 package com.softartdev.notedelight.shared.database
 
+import app.cash.sqldelight.db.SqlDriver
 import com.softartdev.notedelight.shared.date.DateAdapter
 import com.softartdev.notedelight.shared.db.Note
 import com.softartdev.notedelight.shared.db.NoteDb
 import com.softartdev.notedelight.shared.db.NoteQueries
-import app.cash.sqldelight.db.SqlDriver
 import kotlinx.datetime.LocalDateTime
 
 fun createQueryWrapper(sqlDriver: SqlDriver): NoteDb {

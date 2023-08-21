@@ -21,7 +21,7 @@ koin = "3.4.3"
 kotlinx-datetime = "0.4.0"
 napier = "2.6.1"
 mokoResources = "0.23.0"
-materialThemePrefs = "0.5.4"
+materialThemePrefs = "0.5.6"
 androidxActivityCompose = "1.7.2"
 androidxComposeTest = "1.5.0"
 androidxCoreSplashscreen = "1.0.1"
@@ -83,7 +83,7 @@ mokoResources = { module = "dev.icerock.moko:resources", version.ref = "mokoReso
 mokoResources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "mokoResources" }
 mokoResources-test = { module = "dev.icerock.moko:resources-test", version.ref = "mokoResources" }
 
-material-theme-prefs = { module = "io.github.softartdev:material-theme-prefs", version.ref = "materialThemePrefs" }
+material-theme-prefs = { module = "io.github.softartdev:theme-material", version.ref = "materialThemePrefs" }
 
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivityCompose" }
 androidx-compose-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidxComposeTest" }

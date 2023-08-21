@@ -1,7 +1,7 @@
 package com.softartdev.notedelight.shared.presentation.title
 
-import com.softartdev.notedelight.shared.data.NoteUseCase
 import com.softartdev.notedelight.shared.base.BaseViewModel
+import com.softartdev.notedelight.shared.data.NoteUseCase
 
 
 class EditTitleViewModel (

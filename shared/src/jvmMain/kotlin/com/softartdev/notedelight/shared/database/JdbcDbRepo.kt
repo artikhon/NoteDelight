@@ -4,7 +4,7 @@ import com.softartdev.notedelight.shared.JvmCipherUtils
 import com.softartdev.notedelight.shared.PlatformSQLiteState
 import com.softartdev.notedelight.shared.data.PlatformSQLiteThrowable
 import com.softartdev.notedelight.shared.db.NoteQueries
-import java.util.*
+import java.util.Properties
 
 /**
  * Encryption functions are mocked

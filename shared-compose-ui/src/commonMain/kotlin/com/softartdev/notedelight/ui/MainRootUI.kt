@@ -1,4 +1,4 @@
-@file:Suppress("EXPERIMENTAL_API_USAGE", "OPT_IN_USAGE")
+@file:Suppress("EXPERIMENTAL_API_USAGE")
 
 package com.softartdev.notedelight.ui
 
@@ -8,7 +8,7 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.slide
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import com.softartdev.notedelight.NoteDelightRoot
-import com.softartdev.themepref.PreferableMaterialTheme
+import com.softartdev.theme.material.PreferableMaterialTheme
 
 @Composable
 fun MainRootUI(component: NoteDelightRoot) {

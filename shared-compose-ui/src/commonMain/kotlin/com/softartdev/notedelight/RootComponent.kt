@@ -1,12 +1,21 @@
 package com.softartdev.notedelight
 
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.router.stack.*
+import com.arkivanov.decompose.router.stack.ChildStack
+import com.arkivanov.decompose.router.stack.StackNavigation
+import com.arkivanov.decompose.router.stack.childStack
+import com.arkivanov.decompose.router.stack.pop
+import com.arkivanov.decompose.router.stack.push
+import com.arkivanov.decompose.router.stack.replaceCurrent
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.backhandler.BackCallback
 import com.arkivanov.essenty.lifecycle.doOnDestroy
 import com.softartdev.notedelight.di.getViewModel
-import com.softartdev.notedelight.ui.*
+import com.softartdev.notedelight.ui.MainScreen
+import com.softartdev.notedelight.ui.NoteDetail
+import com.softartdev.notedelight.ui.SettingsScreen
+import com.softartdev.notedelight.ui.SignInScreen
+import com.softartdev.notedelight.ui.SplashScreen
 
 class RootComponent(
     componentContext: ComponentContext,

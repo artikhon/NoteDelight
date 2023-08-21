@@ -1,7 +1,7 @@
 package com.softartdev.notedelight.shared.presentation.note
 
-import com.softartdev.notedelight.shared.data.NoteUseCase
 import com.softartdev.notedelight.shared.base.BaseViewModel
+import com.softartdev.notedelight.shared.data.NoteUseCase
 import io.github.aakira.napier.Napier
 
 

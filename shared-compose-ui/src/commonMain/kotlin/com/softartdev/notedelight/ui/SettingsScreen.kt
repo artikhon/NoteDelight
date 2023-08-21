@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.semantics.toggleableState
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.unit.dp
@@ -27,9 +28,9 @@ import com.softartdev.notedelight.ui.dialog.showConfirmPassword
 import com.softartdev.notedelight.ui.dialog.showEnterPassword
 import com.softartdev.notedelight.ui.dialog.showError
 import com.softartdev.notedelight.ui.icon.FileLock
-import com.softartdev.themepref.DialogHolder
-import com.softartdev.themepref.LocalThemePrefs
-import com.softartdev.themepref.ThemePreferenceItem
+import com.softartdev.theme.material.ThemePreferenceItem
+import com.softartdev.theme.pref.DialogHolder
+import com.softartdev.theme.pref.PreferableMaterialTheme.themePrefs
 import dev.icerock.moko.resources.compose.stringResource
 import kotlinx.coroutines.launch
 
@@ -45,7 +46,7 @@ fun SettingsScreen(
         onDispose(settingsViewModel::onCleared)
     }
     val encryptionState = remember { mutableStateOf(false) }
-    val dialogHolder: DialogHolder = LocalThemePrefs.current.dialogHolder
+    val dialogHolder: DialogHolder = themePrefs.dialogHolder
     val scaffoldState = rememberScaffoldState()
     when (val securityResult = securityResultState.value) {
         is SecurityResult.Loading -> Unit
@@ -106,6 +107,7 @@ fun SettingsScreenBody(
                     modifier = Modifier.semantics {
                         contentDescription = MR.strings.pref_title_enable_encryption.contextLocalized()
                         toggleableState = ToggleableState(encryptionState.value)
+                        testTag = MR.strings.pref_title_enable_encryption.contextLocalized()
                     },
                     title = stringResource(MR.strings.pref_title_enable_encryption),
                     vector = Icons.Default.Lock,
@@ -129,7 +131,7 @@ fun SettingsScreenBody(
                     icon = {},
                     secondaryText = { Text(createMultiplatformMessage()) })
             }
-            LocalThemePrefs.current.showDialogIfNeed()
+            themePrefs.showDialogIfNeed()
         }
     },
     scaffoldState = settingsScaffoldState,

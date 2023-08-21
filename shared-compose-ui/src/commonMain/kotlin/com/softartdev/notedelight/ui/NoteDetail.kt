@@ -5,10 +5,29 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.LinearProgressIndicator
+import androidx.compose.material.Scaffold
+import androidx.compose.material.ScaffoldState
+import androidx.compose.material.SnackbarHostState
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
-import androidx.compose.runtime.*
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Save
+import androidx.compose.material.icons.filled.Title
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -21,9 +40,9 @@ import com.softartdev.notedelight.ui.dialog.showDelete
 import com.softartdev.notedelight.ui.dialog.showEditTitle
 import com.softartdev.notedelight.ui.dialog.showError
 import com.softartdev.notedelight.ui.dialog.showSaveChanges
-import com.softartdev.themepref.DialogHolder
-import com.softartdev.themepref.LocalThemePrefs
-import com.softartdev.themepref.PreferableMaterialTheme
+import com.softartdev.theme.material.PreferableMaterialTheme
+import com.softartdev.theme.pref.DialogHolder
+import com.softartdev.theme.pref.PreferableMaterialTheme.themePrefs
 import dev.icerock.moko.resources.compose.stringResource
 import kotlinx.coroutines.launch
 
@@ -46,7 +65,7 @@ fun NoteDetail(
     val textState: MutableState<String> = remember { mutableStateOf("") }
 
     backWrapper.handler = { noteViewModel.checkSaveChange(titleState.value, textState.value) }
-    val dialogHolder: DialogHolder = LocalThemePrefs.current.dialogHolder
+    val dialogHolder: DialogHolder = themePrefs.dialogHolder
 
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     val snackbarHostState: SnackbarHostState = scaffoldState.snackbarHostState
@@ -140,7 +159,7 @@ fun NoteDetailBody(
                 label = { Text(stringResource(MR.strings.type_text)) },
             )
         }
-        LocalThemePrefs.current.showDialogIfNeed()
+        themePrefs.showDialogIfNeed()
     }
 }
 

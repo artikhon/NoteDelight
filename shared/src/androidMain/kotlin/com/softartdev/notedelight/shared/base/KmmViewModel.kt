@@ -1,8 +1,8 @@
 package com.softartdev.notedelight.shared.base
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope as extViewModelScope
 import kotlinx.coroutines.CoroutineScope
+import androidx.lifecycle.viewModelScope as extViewModelScope
 
 actual open class KmmViewModel actual constructor() : ViewModel() {
 

@@ -16,8 +16,7 @@ import com.softartdev.notedelight.MR
 import com.softartdev.notedelight.shared.presentation.splash.SplashResult
 import com.softartdev.notedelight.shared.presentation.splash.SplashViewModel
 import com.softartdev.notedelight.ui.dialog.showError
-import com.softartdev.themepref.DialogHolder
-import com.softartdev.themepref.LocalThemePrefs
+import com.softartdev.theme.pref.PreferableMaterialTheme.themePrefs
 import dev.icerock.moko.resources.compose.painterResource
 
 @Composable
@@ -27,12 +26,11 @@ fun SplashScreen(splashViewModel: SplashViewModel, navSignIn: () -> Unit, navMai
         splashViewModel.checkEncryption()
         onDispose(splashViewModel::onCleared)
     }
-    val dialogHolder: DialogHolder = LocalThemePrefs.current.dialogHolder
     when (val splashResult: SplashResult = splashResultState.value) {
         is SplashResult.Loading -> Unit//TODO: progress bar
         is SplashResult.NavSignIn -> navSignIn()
         is SplashResult.NavMain -> navMain()
-        is SplashResult.ShowError -> dialogHolder.showError(splashResult.message)
+        is SplashResult.ShowError -> themePrefs.dialogHolder.showError(splashResult.message)
     }
     SplashScreenBody()
 }
@@ -50,7 +48,7 @@ fun SplashScreenBody() = Box(
             .align(Alignment.Center)
             .background(color = MaterialTheme.colors.background)
     )
-    LocalThemePrefs.current.showDialogIfNeed()
+    themePrefs.showDialogIfNeed()
 }
 
 @Preview
